@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mundo de Soluções, SU, Lda | Nampula</title>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/img/logo.png">
+<style>
+  :root{
+    --red:#A32626;
+    --red-deep:#6E1414;
+    --ink:#171412;
+    --gold:#D4AF37;
+    --gold-soft:#E8CE7A;
+    --cream:#F7F3EC;
+    --paper:#FBF8F2;
+    --line:rgba(23,20,18,0.12);
+    --whatsapp:#25D366;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:'Work Sans', sans-serif; line-height:1.65; font-size:16px;
+  }
+  h1,h2,h3,h4{ font-family:'Zilla Slab', serif; font-weight:600; line-height:1.15; }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  img{max-width:100%; display:block;}
+  svg{display:block;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:60;
+    background:var(--paper); border-bottom:3px solid var(--gold);
+    box-shadow:0 2px 14px rgba(0,0,0,0.06);
+  }
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between;
+    max-width:1180px; margin:0 auto; padding:14px 28px;
+  }
+  .logo-container{display:flex; align-items:center; gap:14px;}
+  .brand-logo-img{height:52px; width:52px; object-fit:contain; border-radius:6px; flex-shrink:0;}
+  .logo-text{font-family:'Zilla Slab',serif; font-weight:700; font-size:1.2rem; text-transform:uppercase; line-height:1.1;}
+  .logo-text span{color:var(--red);}
+  .logo-slogan{font-size:0.72rem; color:var(--red); font-weight:600; font-style:italic; margin-top:3px;}
+  .nav-links{display:flex; gap:26px; font-size:0.93rem; font-weight:600;}
+  .nav-links a{transition:color .2s;}
+  .nav-links a:hover{color:var(--red);}
+  .nav-cta{display:flex; align-items:center; gap:14px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:11px 22px; border-radius:30px; font-weight:600; font-size:0.92rem;
+    border:1.5px solid transparent; transition:transform .15s ease, opacity .2s ease;
+  }
+  .btn-wa{background:var(--whatsapp); color:#fff;}
+  .btn-wa:hover{transform:translateY(-2px); opacity:0.92;}
+  .menu-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer;}
+  .menu-toggle span{width:23px; height:2px; background:var(--ink);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:linear-gradient(135deg, var(--ink) 0%, var(--red-deep) 55%, var(--red) 100%);
+    color:var(--paper); text-align:center; padding:96px 28px 84px;
+    border-bottom:5px solid var(--gold);
+  }
+  .hero-eyebrow{
+    display:inline-block; font-size:0.78rem; font-weight:700; letter-spacing:0.4px;
+    color:var(--gold-soft); border:1px solid var(--gold-soft); border-radius:30px;
+    padding:6px 16px; margin-bottom:24px;
+  }
+  .hero h1{font-size:2.6rem; margin-bottom:8px;}
+  .hero h1 span{color:var(--gold);}
+  .hero-slogan{font-size:1.15rem; color:var(--gold-soft); font-weight:600; margin-bottom:18px;}
+  .hero p{max-width:760px; margin:0 auto 32px; opacity:0.92; font-size:1.03rem;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:84px 0;}
+  .section-title{text-align:center; margin-bottom:48px;}
+  .section-title h2{font-size:2.15rem; position:relative; display:inline-block;}
+  .section-title h2::after{
+    content:''; width:56%; height:3px; background:var(--red);
+    display:block; margin:10px auto 0; border-radius:2px;
+  }
+  .section-title p{margin-top:14px; color:#5b5450; max-width:620px; margin-left:auto; margin-right:auto;}
+
+  /* ---------- SOBRE / MVV ---------- */
+  .about-section{background:var(--cream); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .about-intro{text-align:center; max-width:820px; margin:0 auto 50px; font-size:1.06rem; color:#443f3b;}
+  .mvv-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px;}
+  .mvv-card{
+    background:var(--paper); padding:32px 28px; border-radius:10px;
+    border-top:4px solid var(--red); box-shadow:0 4px 16px rgba(0,0,0,0.05); text-align:left;
+  }
+  .icon-badge{
+    width:52px; height:52px; border-radius:50%; background:rgba(163,38,38,0.08);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .icon-badge svg{width:26px; height:26px; stroke:var(--red); fill:none;}
+  .mvv-card h3{font-size:1.25rem; margin-bottom:10px;}
+  .mvv-card p{color:#5b5450; font-size:0.95rem;}
+  .mvv-card ul li{margin-bottom:7px; padding-left:18px; position:relative; font-size:0.93rem; color:#5b5450;}
+  .mvv-card ul li::before{content:'★'; position:absolute; left:0; color:var(--gold);}
+
+  /* ---------- SERVIÇOS ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;}
+  .service-card{
+    background:var(--paper); padding:30px 28px; border-radius:10px;
+    box-shadow:0 4px 16px rgba(0,0,0,0.05); border-top:4px solid var(--red);
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .service-card:hover{transform:translateY(-4px); border-top-color:var(--gold);}
+  .service-card h3{font-size:1.15rem; margin-bottom:12px;}
+  .service-card ul li{position:relative; padding-left:20px; margin-bottom:8px; font-size:0.92rem; color:#5b5450;}
+  .service-card ul li::before{content:'✓'; position:absolute; left:0; color:var(--red); font-weight:700;}
+
+  /* ---------- CURSOS ---------- */
+  .courses-section{background:var(--ink); color:var(--paper);}
+  .courses-section .section-title h2{color:var(--paper);}
+  .courses-section .section-title p{color:rgba(247,243,236,0.72);}
+  .course-box{
+    display:grid; grid-template-columns:1.5fr 1fr; gap:30px;
+    background:rgba(247,243,236,0.05); padding:32px; border-radius:12px;
+    border-left:5px solid var(--gold);
+  }
+  .course-box h3{color:var(--gold-soft); font-size:1.15rem; margin-bottom:16px;}
+  .course-list-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px;}
+  .course-item{
+    background:rgba(247,243,236,0.06); border:1px solid rgba(247,243,236,0.14);
+    padding:13px 16px; border-radius:8px; font-weight:600; font-size:0.93rem;
+    display:flex; align-items:center; gap:10px;
+  }
+  .course-item svg{width:18px; height:18px; stroke:var(--gold); fill:none; flex-shrink:0;}
+  .course-requirements{
+    background:var(--paper); color:var(--ink); padding:24px; border-radius:10px;
+  }
+  .course-requirements h4{color:var(--red); font-size:1.02rem; margin-bottom:12px; padding-bottom:8px; border-bottom:2px solid var(--cream);}
+  .course-requirements p{font-size:0.95rem; margin-bottom:6px;}
+  .course-requirements ul{margin-top:8px; padding-left:2px;}
+  .course-requirements ul li{font-size:0.87rem; padding-left:16px; position:relative; margin-bottom:5px; color:#5b5450;}
+  .course-requirements ul li::before{content:'–'; position:absolute; left:0; color:var(--red);}
+  .course-note{margin-top:12px; font-size:0.8rem; color:#8a827c; font-style:italic;}
+
+  /* ---------- PORTFÓLIO (grelha com miniaturas) ---------- */
+  .gallery-note{
+    text-align:center; max-width:680px; margin:-24px auto 40px; font-size:0.92rem;
+    color:#8a827c; font-style:italic;
+  }
+  .gallery-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:26px;}
+  .gallery-card{
+    background:var(--paper); border-radius:12px; overflow:hidden;
+    box-shadow:0 4px 16px rgba(0,0,0,0.06); border-bottom:4px solid var(--red);
+    transition:transform .2s ease, border-color .2s ease;
+  }
+  .gallery-card:hover{transform:translateY(-4px); border-bottom-color:var(--gold);}
+  .gallery-img-wrapper{
+    width:100%; height:210px; overflow:hidden; position:relative;
+    display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(135deg, var(--ink), var(--red));
+  }
+  .gallery-img-wrapper img{width:100%; height:100%; object-fit:cover;}
+  .gallery-img-wrapper .placeholder-icon{width:44px; height:44px; stroke:var(--gold-soft); fill:none; opacity:0.9;}
+  .gallery-thumbs{display:flex; flex-wrap:wrap; gap:8px; padding:12px 16px 4px;}
+  .thumb-slot{
+    width:52px; height:46px; border-radius:6px; flex-shrink:0;
+    background:var(--cream); border:2px solid transparent; overflow:hidden;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+  }
+  .thumb-slot img{width:100%; height:100%; object-fit:cover;}
+  .thumb-slot.active, .thumb-slot:hover{border-color:var(--red);}
+  .thumb-slot svg{width:16px; height:16px; stroke:#b3aca4; fill:none;}
+  .gallery-img-wrapper img{cursor:default;}
+  .gallery-card-content{padding:14px 16px 18px;}
+  .gallery-card-content h4{font-size:1.02rem; margin-bottom:4px;}
+  .gallery-card-content p{font-size:0.85rem; color:#5b5450;}
+
+  /* ---------- CONTACTO / FOOTER ---------- */
+  footer{background:var(--ink); color:var(--paper); padding:52px 0 22px; border-top:4px solid var(--red);}
+  .footer-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:38px; margin-bottom:36px;
+  }
+  .footer-grid h3{color:var(--gold-soft); font-size:1.05rem; margin-bottom:12px;}
+  .footer-slogan{color:var(--gold-soft); font-style:italic; font-size:0.9rem; margin-bottom:12px;}
+  .footer-grid p{font-size:0.9rem; color:rgba(247,243,236,0.78);}
+  .contact-item{display:flex; align-items:center; gap:10px; margin-bottom:10px; font-size:0.92rem;}
+  .contact-item svg{width:17px; height:17px; stroke:var(--gold-soft); fill:none; flex-shrink:0;}
+  .footer-bottom{
+    text-align:center; border-top:1px solid rgba(247,243,236,0.14); padding-top:20px;
+    font-size:0.82rem; color:rgba(247,243,236,0.55);
+  }
+
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:70;
+    width:58px; height:58px; border-radius:50%; background:var(--whatsapp);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,0.28); transition:transform .2s ease;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:29px; height:29px; fill:#fff;}
+
+  .contact-form-section{
+    background:var(--ink); color:var(--cream); padding:60px 0;
+  }
+  .contact-form-section .section-title h2{color:var(--cream);}
+  .contact-form-section .section-title p{color:rgba(247,243,236,0.75);}
+  .contact-form-wrap{
+    max-width:700px; margin:0 auto; background:rgba(247,243,236,0.05);
+    border:1px solid rgba(232,206,122,0.3); border-radius:14px; padding:30px;
+  }
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;}
+  .form-field{display:flex; flex-direction:column; gap:6px;}
+  .form-field.full{grid-column:1 / -1;}
+  .form-field label{font-size:0.85rem; color:var(--gold-soft); font-weight:600;}
+  .form-field input, .form-field select, .form-field textarea{
+    background:var(--cream); border:1px solid rgba(0,0,0,0.1); border-radius:8px;
+    padding:11px 13px; font-family:'Work Sans',sans-serif; font-size:0.95rem; color:var(--ink);
+  }
+  .form-field textarea{resize:vertical; min-height:90px;}
+  .form-submit-btn{
+    width:100%; margin-top:6px; border:none; cursor:pointer;
+    background:linear-gradient(135deg, var(--red-deep) 0%, var(--red) 100%);
+    color:#fff; font-weight:700; font-size:1rem; padding:14px; border-radius:30px;
+    border-bottom:4px solid var(--gold); display:flex; align-items:center; justify-content:center; gap:10px;
+  }
+  .form-submit-btn:hover{opacity:0.92;}
+  .form-note{font-size:0.78rem; color:rgba(247,243,236,0.55); text-align:center; margin-top:12px;}
+
+  @media (max-width:900px){
+    .nav-links{display:none;}
+    .menu-toggle{display:flex;}
+    .hero h1{font-size:2rem;}
+    .course-box{grid-template-columns:1fr;}
+    .section-title h2{font-size:1.7rem;}
+    .form-row{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo-container">
+      <img class="brand-logo-img" src="assets/img/logo.png" alt="Mundo de Soluções">
+      <div>
+        <div class="logo-text">Mundo de <span>Soluções</span></div>
+        <div class="logo-slogan">Sua vontade, nossas mãos.</div>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Início</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#galeria">Portfólio</a>
+      <a href="#formulario">Pedir Orçamento</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-wa" href="https://wa.me/258864245094?text=Olá,%20gostaria%20de%20solicitar%20um%20serviço/informação." target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.83 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.12-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+        WhatsApp
+      </a>
+      <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <span class="hero-eyebrow">Nampula, Moçambique</span>
+  <h1>Mundo de <span>Soluções</span>, SU, Lda</h1>
+  <div class="hero-slogan">Sua vontade, nossas mãos. Somos a solução para a sua necessidade.</div>
+  <p>Consultoria empresarial, construção e arquitetura, formação profissional prática, eventos e gastronomia, gráfica e serigrafia, e instalações técnicas — tudo debaixo do mesmo teto em Nampula.</p>
+  <a class="btn btn-wa" style="padding:14px 30px; font-size:1.02rem;" href="https://wa.me/258864245094?text=Olá,%20gostaria%20de%20solicitar%20um%20serviço/informação." target="_blank">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.83 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.12-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+    Falar no WhatsApp
+  </a>
+</section>
+
+<section class="about-section" id="sobre">
+  <div class="wrap">
+    <div class="section-title"><h2>Sobre Nós</h2></div>
+    <p class="about-intro">A <strong>Mundo de Soluções, SU, Lda</strong> é uma empresa moçambicana sediada em Nampula, vocacionada na prestação de serviços integrados e formação profissional prática. O nosso compromisso é oferecer respostas rápidas, inovadoras e eficientes para impulsionar negócios, formar talentos e realizar eventos memoráveis.</p>
+    <div class="mvv-grid">
+      <div class="mvv-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="0.6" fill="var(--red)"/></svg></div>
+        <h3>Nossa Missão</h3>
+        <p>Prestar serviços com rigor e excelência técnica, entregando soluções personalizadas aos nossos clientes e capacitando cidadãos através de formações práticas voltadas ao mercado de trabalho.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Nossa Visão</h3>
+        <p>Ser a empresa de referência na província de Nampula e na região Norte de Moçambique na diversidade de serviços empresariais, técnicos e no desenvolvimento comunitário.</p>
+      </div>
+      <div class="mvv-card">
+        <div class="icon-badge"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18M9 3l3 6 3-6M12 9l-2 12M12 9l2 12"/></svg></div>
+        <h3>Nossos Valores</h3>
+        <ul>
+          <li>Profissionalismo e Pontualidade</li>
+          <li>Transparência e Integridade</li>
+          <li>Inovação e Qualidade Técnica</li>
+          <li>Foco e Satisfação do Cliente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Nossas Áreas de Atuação</h2>
+      <p>Nove áreas, uma só equipa — cada uma conduzida por profissionais dedicados à sua especialidade.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <h3>Consultoria Empresarial &amp; Crédito</h3>
+        <ul>
+          <li>Constituição de empresas (PMEs) e início de atividade</li>
+          <li>Reserva de nome, Conservatória e obtenção de alvará</li>
+          <li>Agente de crédito bancário / angariação para carteiras</li>
+          <li>Gestão de processos e financiamentos bancários</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Construção &amp; Arquitetura</h3>
+        <ul>
+          <li>Execução de obras de construção civil</li>
+          <li>Projetos arquitetónicos de moradias (tipo 1, 2 e 3)</li>
+          <li>Projetos de edifícios de vários pisos</li>
+          <li>Acompanhamento e dimensionamento em terreno</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Hardware, Eletrónica &amp; Frio</h3>
+        <ul>
+          <li>Manutenção de hardware e software de computadores</li>
+          <li>Reparação de TVs, plasmas e micro-ondas</li>
+          <li>Manutenção e reparação de meios frios</li>
+          <li>Instalações elétricas residenciais e industriais</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Serralharia, Marcenaria &amp; Obras</h3>
+        <ul>
+          <li>Produção metálica: portas, janelas, grades e fogões</li>
+          <li>Carpintaria moderna: prateleiras de cozinha e racks TV</li>
+          <li>Estofaria de camas e sofás</li>
+          <li>Decoração de paredes (gesso e madeira) e canalização</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Serigrafia &amp; Brindes Corporativos</h3>
+        <ul>
+          <li>Bordados e estampagem de t-shirts e bonés</li>
+          <li>Personalização de copos, canetas, chaveiros e pendrives</li>
+          <li>Reclamos luminosos, banners e lonas (por m²)</li>
+          <li>Criação de logótipos e marcas comerciais</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Gráfica &amp; Apoio Académico</h3>
+        <ul>
+          <li>Cópias e impressões (A4 P&amp;B e colorido)</li>
+          <li>Livros de factura/recibo, VD e blocos de bilhetes</li>
+          <li>Apoio científico: monografias, dissertações e slides</li>
+          <li>Preparação para defesas e redação de CV</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Eventos, Ornamentação &amp; MC</h3>
+        <ul>
+          <li>Ornamentação e decoração de eventos</li>
+          <li>Aluguer de material: mesas, cadeiras, arcos e mesas de bolo</li>
+          <li>Acompanhamento no local para apoio na ornamentação</li>
+          <li>Apresentadores e mestres de cerimónia (MC) por contrato</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Gastronomia, Bolos &amp; Buffet</h3>
+        <ul>
+          <li>Bolos personalizados por encomenda</li>
+          <li>Preparação de buffets completos</li>
+          <li>Culinária nacional e internacional</li>
+          <li>Catering para festas e eventos corporativos</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <h3>Comércio Agropecuário</h3>
+        <ul>
+          <li>Criação e abate de animais</li>
+          <li>Produção e venda de cereais</li>
+          <li>Comercialização por grosso e a retalho</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="courses-section" id="cursos">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Centro de Formação Profissional</h2>
+      <p>Foco 100% prático. Formamos profissionais capacitados para o mercado de trabalho!</p>
+    </div>
+    <div class="course-box">
+      <div>
+        <h3>Cursos Disponíveis (Duração: 1 Mês)</h3>
+        <div class="course-list-grid">
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>Informática</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>Eletricidade</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="4" y="6" width="16" height="11" rx="1"/><path d="M9 20h6M12 17v3"/></svg>Eletrónica</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M6 3v6a3 3 0 0 0 3 3v9M18 3v6a3 3 0 0 1-3 3"/></svg>Canalização</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>Construção Civil (Pedreiros)</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="7" r="3.2"/><path d="M5 21c0-4 3-6.5 7-6.5S19 17 19 21"/></svg>Secretariado Executivo</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M4 13c0-4 3.5-9 8-9s8 5 8 9"/><path d="M3 13h18l-1.5 7h-15z"/></svg>Culinária (Cozinha)</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="8" r="3"/><path d="M7 14c0-1.5 2-2.5 5-2.5s5 1 5 2.5v2H7z"/><path d="M9 5.5c0-1.2 1.3-2 3-2s3 .8 3 2"/></svg>Pastelaria</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>Ornamentação de Mesas</div>
+          <div class="course-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>Design Gráfico</div>
+        </div>
+      </div>
+      <div class="course-requirements">
+        <h4>Condições de Inscrição</h4>
+        <p><strong>Inscrição:</strong> 800 MT (todos os cursos)</p>
+        <p><strong>Mensalidade:</strong> 1.500 MT</p>
+        <p class="course-note" style="margin-top:-4px; margin-bottom:12px;">Exceções — Culinária (Cozinha): 3.000 MT/mês · Pastelaria: 2.500 MT/mês · Ornamentação de Mesas: 2.500 MT/mês</p>
+        <p><strong>Certificado:</strong> Grátis e válido a nível nacional</p>
+        <p><strong>Requisitos:</strong></p>
+        <ul>
+          <li>Cópia do BI autenticada</li>
+          <li>2 fotos tipo passe</li>
+          <li>Certificado da 10ª ou 7ª classe</li>
+        </ul>
+        <p class="course-note">*Prendas especiais nas cerimónias de graduação!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Portfólio &amp; Trabalhos Realizados</h2>
+      <p>Confira a execução prática dos nossos serviços em construção, marcenaria, gráfica, formação e eventos.</p>
+    </div>
+    <p class="gallery-note">Confira os nossos trabalhos reais em cada área — clique numa miniatura para ver mais opções.</p>
+    <div class="gallery-grid">
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/obras-1-armacao-ferro-laje.jpg" alt="Construção civil Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/obras-1-armacao-ferro-laje.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/obras-2-armacao-ferro-laje-2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/obras-2-armacao-ferro-viga.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/obras-4-pedreiro-rebocando-parede.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Obras &amp; Construção Civil</h4><p>Execução de moradias e edifícios</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/marcenaria-8-guarda-roupas-duplos.jpg" alt="Marcenaria Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-8-guarda-roupas-duplos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-7-guarda-roupa-espelho.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-6-instalacao-espelho-aparador.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-5-cama-madeira.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-4-estante-guarda-roupa-aberta.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-3-nicho-flutuante-led.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-1-painel-ripado-varanda.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/marcenaria-2-prateleiras-frigorifico.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Marcenaria Modernizada</h4><p>Móveis e estruturas sob medida</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/serigrafia-2-techsousa-pendurada.jpg" alt="Serigrafia Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-2-techsousa-pendurada.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-1-equipa-camisetas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-3-techsousa-dobrada.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-4-techsousa-costas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-5-mockup-nampula.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-6-servcred-polos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-7-techsousa-mesa.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-8-onp-verde.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-9-techsousa-bone.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-10-bw-knockout.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-11-polos-rosa-mashaoso.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-12-polos-brancos-mundo.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-13-polos-campanha.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-15-polo-personalizado-menino.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-16-polo-personalizado-menina.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-17-polos-dia-criancas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-2-tech-renewables-coletes.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-3-tech-renewables-capacetes.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-4-tech-renewables-capacetes-coletes.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-19-onp-azul.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-22-onp-vermelho.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-27-onp-amarelo.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-20-polo-comercial-lda.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-21-casca-laranja-azul.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-24-casca-4-cores.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-28-casca-laranja.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-23-motiua-polo.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-25-crachas-lichinga.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-26-princesa-liriany.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-14-polos-rosa-2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-18-polos-dia-criancas-2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-29-casca-4-cores-embaladas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-30-fc-carrupeia-jerseys.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-31-bayern-munchen-jerseys.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-32-hcn-manutencao-colete.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-33-hcn-manutencao-coletes-multiplos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-34-eliano-da-story-camisa-bone1.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-35-resistir-camisas-brancas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-36-eliano-da-story-camisa-bone2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-37-camisetas-feliz-7-abril.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/serigrafia-38-bone-camisa-dm-macoquera.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Serigrafia &amp; Uniformes</h4><p>Estampagem e bordados corporativos</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/eventos-3-mesa-frutas-espetadas.jpg" alt="Catering Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-3-mesa-frutas-espetadas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-4-doce-aletria-copos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-2-catering-mesa.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-5-bolo-casamento-le-f.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-6-bolo-barcelona-31anos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-7-bolo-conchas-21anos-raquel.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-8-bolo-sporting-frutas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-9-mesa-arroz-gelatina-verde.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-10-frigorifico-varios-bolos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-11-bolo-princesa-sofia-hellen.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-12-festa-infantil-frutas-melancia.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-13-bolos-zinho-telma.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-14-bolo-verde-feliz-aniversario-amiga.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Gastronomia &amp; Eventos</h4><p>Coquetéis, doces e mesas montadas pela nossa equipa</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/comunicacao-1-idepa-banner.jpg" alt="Comunicação visual Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-1-idepa-banner.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-2-idepa-banner-2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-3-idepa-banners-dupla.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-4-camiao-frente.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-7-camiao-pessoas.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-5-bilhetes-evento.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-6-folhetos-idepa.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-8-piso-casamento-lurdes.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-9-piso-casamento-daniela.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-10-impressora-banner1.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-11-impressora-banner2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-12-idepa-letreiro-montagem1.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-13-idepa-letreiro-montagem2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-14-banner-resistir-montagem.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-15-banner-resistir-diga-nao.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-16-bilhetes-evento.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-17-convites-casamento.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-18-carimbos-empresa.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-19-carimbo-livros-recibo-fatura.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-20-crachas-protocolo-copos.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/comunicacao-21-livros-fatura-recibo-passaro.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Comunicação Visual</h4><p>Roll-ups, folhetos, bilhetes e rotulagem de viaturas</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/eventos-1-ornamentacao-baloes.jpg" alt="Ornamentação Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/eventos-1-ornamentacao-baloes.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-1-agendas-csp.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-5-kit-graduacao-rosa1.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-6-termo-caneta-rosa.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-7-termo-notebook-foto.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-8-capa-caneta-termo.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-9-caneca-agenda-patricia1.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-10-caneca-agenda-patricia2.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-13-arco-baloes-parabens.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-14-arco-baloes-vermelho-branco-bolo.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-15-canecas-personalizadas-casal.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-16-buque-rosas-tecido-amarelo.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/brindes-17-canecas-personalizadas-nomes.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Ornamentação &amp; Brindes</h4><p>Decoração de festas e lembranças personalizadas</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/formacao-3-eletronica.jpg" alt="Formação técnica Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/formacao-3-eletronica.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/formacao-1-tecnico-capacete.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/formacao-2-alunos-fardamento.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/formacao-4-sala-formal.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/formacao-5-informatica.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Formação Técnica</h4><p>Alunos em aulas práticas de eletrónica, hardware e eletricidade</p></div>
+      </div>
+
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper"><img src="assets/img/portfolio/instalacoes-1-montagem-parede.jpg" alt="Instalações Mundo de Soluções"></div>
+        <div class="gallery-thumbs">
+          <div class="thumb-slot active" onclick="swapImg(this)"><img src="assets/img/portfolio/instalacoes-1-montagem-parede.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/instalacoes-2-luminaria-fluorescente.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/instalacoes-3-teto-falso-montagem.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/instalacoes-4-teto-falso-finalizado.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/instalacoes-5-detector-metais-reparacao.jpg"></div>
+          <div class="thumb-slot" onclick="swapImg(this)"><img src="assets/img/portfolio/instalacoes-6-parede-luz-led.jpg"></div>
+        </div>
+        <div class="gallery-card-content"><h4>Instalações &amp; Montagens</h4><p>Montagem e acabamentos no local</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact-form-section" id="formulario">
+  <div class="wrap">
+    <div class="section-title">
+      <h2>Peça Já o Seu Orçamento</h2>
+      <p>Preencha os seus dados abaixo — a mensagem é enviada diretamente para o nosso WhatsApp e respondemos o mais rápido possível.</p>
+    </div>
+    <div class="contact-form-wrap">
+      <form id="orcamento-form" onsubmit="return enviarWhatsApp(event)">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-nome">Nome Completo</label>
+            <input type="text" id="f-nome" required placeholder="O seu nome">
+          </div>
+          <div class="form-field">
+            <label for="f-contacto">Contacto (Telefone)</label>
+            <input type="tel" id="f-contacto" required placeholder="84/86 xxx xxxx">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="f-servico">Serviço de Interesse</label>
+            <select id="f-servico">
+              <option>Consultoria Empresarial &amp; Crédito Bancário</option>
+              <option>Construção &amp; Arquitetura</option>
+              <option>Hardware, Eletrónica &amp; Frio</option>
+              <option>Serralharia, Marcenaria &amp; Obras</option>
+              <option>Serigrafia &amp; Brindes Corporativos</option>
+              <option>Gráfica &amp; Apoio Académico</option>
+              <option>Eventos, Ornamentação &amp; MC</option>
+              <option>Gastronomia, Bolos &amp; Buffet</option>
+              <option>Comércio Agropecuário</option>
+              <option>Cursos do Centro de Formação</option>
+              <option>Outro assunto</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full">
+            <label for="f-mensagem">Mensagem</label>
+            <textarea id="f-mensagem" placeholder="Descreva o que precisa..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.83 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.12-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+          Enviar Pedido por WhatsApp
+        </button>
+        <p class="form-note">Ao enviar, o WhatsApp abre com a sua mensagem já preenchida — é só confirmar o envio.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Mundo de Soluções, SU, Lda</h3>
+        <div class="footer-slogan">"Sua vontade, nossas mãos. Somos a solução para a sua necessidade."</div>
+        <p>Soluções integradas para empresas, estudantes e famílias em Nampula. Formação prática, serviços técnicos, construção, gastronomia e eventos.</p>
+      </div>
+      <div>
+        <h3>Contactos</h3>
+        <div class="contact-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.2z"/></svg>(+258) 84 93 25 094</div>
+        <div class="contact-item"><svg viewBox="0 0 24 24" fill="var(--gold-soft)"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2z" fill="none" stroke="var(--gold-soft)" stroke-width="1.6"/></svg>(+258) 86 42 45 094 (WhatsApp)</div>
+        <div class="contact-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg>mundodesolucoessuunipessoal@gmail.com</div>
+        <div class="contact-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2"/><path d="M14 10h6M14 14h4"/></svg>NUIT: 401 956 433</div>
+      </div>
+      <div>
+        <h3>Localização</h3>
+        <div class="contact-item"><svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>Rua da Solidariedade, Nº 3029 – Bairro Muatala, Nampula, Moçambique</div>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Mundo de Soluções, SU, Lda. Todos os direitos reservados.</div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/258864245094?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços/cursos." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.51 2 12.04 2zm5.83 14.13c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.12-.42-.13-.96-.3-1.65-.6-2.9-1.25-4.8-4.16-4.94-4.35-.14-.19-1.18-1.57-1.18-3 0-1.42.75-2.12 1.02-2.41.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.61-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.1 1.63.77 1.91.91.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+function swapImg(thumbEl){
+  const card = thumbEl.closest('.gallery-card');
+  const mainImg = card.querySelector('.gallery-img-wrapper img');
+  const thumbImg = thumbEl.querySelector('img');
+  if(mainImg && thumbImg){ mainImg.src = thumbImg.src; }
+  card.querySelectorAll('.thumb-slot').forEach(t => t.classList.remove('active'));
+  thumbEl.classList.add('active');
+}
+
+function enviarWhatsApp(event){
+  event.preventDefault();
+  const nome = document.getElementById('f-nome').value.trim();
+  const contacto = document.getElementById('f-contacto').value.trim();
+  const servico = document.getElementById('f-servico').value;
+  const mensagem = document.getElementById('f-mensagem').value.trim();
+  let texto = `Olá, meu nome é ${nome}.\nContacto: ${contacto}\nServiço de interesse: ${servico}`;
+  if(mensagem){ texto += `\nMensagem: ${mensagem}`; }
+  const url = `https://wa.me/258864245094?text=${encodeURIComponent(texto)}`;
+  window.open(url, '_blank');
+  return false;
+}
+</script>
+</body>
+</html>
